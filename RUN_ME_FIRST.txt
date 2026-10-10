@@ -1,0 +1,19 @@
+WINDOWS / VS CODE QUICK START
+
+1. Extract this folder and open it in VS Code.
+2. Open Terminal > New Terminal.
+3. Run these commands one at a time:
+
+py -m venv .venv
+.venv\Scripts\activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+streamlit run main.py
+
+If PowerShell blocks activation, use Command Prompt in VS Code and run:
+.venv\Scripts\activate.bat
+
+The dashboard opens in your browser, usually at http://localhost:8501.
+The first launch creates the simulated CSV, trains the model, and saves outputs automatically.
+
+Note: This is a simulation using synthetic data, not a real industrial safety system.

@@ -1,117 +1,82 @@
 # AI-Powered Predictive Maintenance for IoT Devices
 
-An interactive Machine Learning project that demonstrates how simulated IoT sensor readings can be used to predict potential machine failure risk.
+A beginner-friendly Machine Learning project that demonstrates how simulated IoT sensor readings can be used to classify machine condition as **normal** or **failure risk**. It includes a Streamlit dashboard, interactive sensor controls, model evaluation, charts, and CSV exports.
 
-## Overview
+> **Important limitation:** This is an academic prototype using synthetic, simulated data. It is not connected to physical IoT sensors and must not be used for industrial safety or maintenance decisions. Results on synthetic data do not demonstrate real-world model performance.
 
-Unexpected equipment failures can cause production delays, maintenance expenses, and operational disruptions. Predictive maintenance uses equipment condition data to identify patterns associated with possible failures.
-
-This project demonstrates a virtual predictive maintenance workflow using Python, a Random Forest classifier, and a Streamlit dashboard. It does not require physical IoT hardware.
-
-## Objectives
-
-- Simulate machine sensor readings.
-- Analyze temperature, vibration, and electrical current.
-- Train a Machine Learning classification model.
-- Predict normal or potential failure-risk conditions.
-- Visualize sensor data and model evaluation metrics.
-- Explore predictions through an interactive dashboard.
+## Problem statement
+Unexpected machine failures can cause downtime, repair costs, and production delays. Predictive maintenance uses condition data to identify patterns associated with possible equipment problems. This project demonstrates the data and ML workflow in a laptop-only simulation.
 
 ## Features
+- Generate a simulated dataset with temperature, vibration, current, and a failure label
+- Train a Random Forest classifier
+- Evaluate with accuracy, precision, recall, F1-score, and confusion matrix
+- Adjust simulated sensor readings and predict machine condition
+- Display sensor distributions and a dataset preview
+- Save prediction history and download CSV files
+- Save the trained model and evaluation metrics locally
 
-- Virtual IoT sensor data generation
-- Random Forest classification
-- Interactive sensor input sliders
-- Machine condition and failure-probability display
-- Accuracy, precision, recall, and F1-score
-- Confusion matrix and classification report
-- Sensor distribution charts
-- CSV download for dataset and prediction history
+## Tech stack
+Python, Pandas, NumPy, Scikit-learn, Streamlit, Matplotlib, Joblib.
 
-## Technology Stack
-
-- Python
-- Pandas and NumPy
-- Scikit-learn
-- Random Forest Classifier
-- Streamlit
-- Matplotlib
-
-## System Architecture
-
-Virtual Sensor Data → Data Preparation → Random Forest Model → Failure-Risk Prediction → Dashboard and Alerts
-
-## Sensor Features
-
-| Feature | Description |
-|---|---|
-| Temperature | Simulated machine temperature in °C |
-| Vibration | Simulated vibration level |
-| Current | Simulated electrical current in A |
-| Failure | Simulated binary target label |
-
-## Installation
-
-1. Install Python and VS Code.
-2. Download or clone this repository.
-3. Open the project folder in VS Code.
-4. Open the terminal and run:
-
-```bash
-python -m venv .venv
+## Project structure
+```text
+AI-Predictive-Maintenance-IoT/
+├── data/
+│   └── simulated_iot_sensor_data.csv  # created automatically
+├── models/
+│   └── predictive_maintenance_model.joblib  # created automatically
+├── outputs/
+│   ├── model_metrics.json  # created automatically
+│   └── prediction_history.csv  # created after predictions
+├── images/                 # add screenshots here
+├── main.py
+├── requirements.txt
+├── .gitignore
+└── README.md
 ```
 
-On Windows:
+## Run on Windows with VS Code
+1. Install Python 3.11 or 3.12 and Git.
+2. Open this project folder in VS Code.
+3. Open **Terminal → New Terminal**.
+4. Create a virtual environment:
+   ```powershell
+   py -m venv .venv
+   .venv\Scripts\Activate.ps1
+   ```
+   If PowerShell blocks activation, use Command Prompt and run `.venv\Scripts\activate.bat`.
+5. Install packages:
+   ```powershell
+   python -m pip install --upgrade pip
+   pip install -r requirements.txt
+   ```
+6. Start the dashboard:
+   ```powershell
+   streamlit run main.py
+   ```
+7. A browser tab should open with the dashboard. If not, open the local URL printed in the terminal (usually `http://localhost:8501`).
 
-```powershell
-.venv\Scripts\activate
-pip install -r requirements.txt
-streamlit run main.py
-```
+## How to use
+- Adjust temperature, vibration, and current using the sliders.
+- Click **Predict machine condition**.
+- Inspect the predicted class and model-estimated probability.
+- Explore the Dataset, Sensor distributions, and Model evaluation tabs.
+- Download the simulated dataset or prediction history.
+- Use the sidebar to regenerate data or retrain the model.
 
-The dashboard should open in your browser, usually at http://localhost:8501.
+## Model and evaluation
+A Random Forest classifier is trained on an 80/20 stratified train/test split. Reported metrics are calculated on the held-out portion of the simulated dataset. Because the labels are generated from a synthetic risk process, these metrics are for demonstrating the workflow only and should not be represented as accuracy on real industrial equipment.
 
-## How to Use
+## Future improvements
+- Replace simulated data with a documented real predictive-maintenance dataset
+- Add chronological validation for time-series sensor data
+- Add equipment IDs, timestamps, and maintenance event history
+- Compare multiple algorithms and tune thresholds for failure recall
+- Add a real sensor/API integration only after safe hardware and deployment design
 
-1. Launch the Streamlit application.
-2. Adjust the temperature, vibration, and current sliders.
-3. Click Predict Machine Condition.
-4. Review the model prediction and estimated failure probability.
-5. Explore the dataset, sensor charts, and evaluation metrics.
-6. Download the dataset or prediction history as CSV files.
-
-## Model Evaluation
-
-The model is evaluated using a held-out test split. Metrics include accuracy, precision, recall, F1-score, and a confusion matrix.
-
-The dataset is synthetic, so the results demonstrate the workflow rather than real-world industrial performance.
-
-## Project Limitations
-
-- No physical IoT sensors or live industrial equipment are connected.
-- Sensor values and labels are simulated.
-- Predictions are demonstrations, not verified maintenance recommendations.
-- Prediction history is stored in the current Streamlit session and is not permanent.
-
-## Future Enhancements
-
-- Integrate a documented real-world predictive maintenance dataset.
-- Compare multiple Machine Learning algorithms.
-- Add time-series analysis and equipment-level history.
-- Explore real sensor integration and API-based predictions.
-
-## Learning Outcomes
-
-This project demonstrates practical experience with data preparation, classification, model evaluation, visualization, and interactive Machine Learning applications.
+## Suggested GitHub topics
+`predictive-maintenance`, `machine-learning`, `iot`, `python`, `scikit-learn`, `streamlit`, `industrial-analytics`
 
 ## Author
-
-Malini
-
-GitHub: https://github.com/thirumalini5662
-
-LinkedIn: https://linkedin.com/in/thirumalini-e-70294b299
-
-## Disclaimer
-
-This is an educational prototype using simulated data. It is not designed or validated for industrial safety or real-world maintenance decisions.
+Add your name, course, and contact links here.
